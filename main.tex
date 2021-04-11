@@ -7,6 +7,18 @@
 \usepackage{float}
 \usepackage{booktabs}
 \usepackage{hyperref}
+\usepackage{listings}
+\usepackage{fontspec}
+\usepackage[utf8]{inputenc}
+
+\setmonofont{Menlo}
+
+\lstset{
+    basicstyle=\small\ttfamily,
+    numbers=left,
+    xleftmargin=2em,
+    framexleftmargin=1.5em
+}
 
 \newcommand{\pr}{\mathrm{Pr}}
 \newtheorem{theorem}{定理}
@@ -187,4 +199,8 @@
     \end{table}
 
     id 那一列是每个西瓜的唯一编号，不用做变量，quality 那列则是目标变量（也就是标签），第2列到第7列都是自变量．有了这些数据，再加上我们刚刚学过的朴素贝叶斯方法，使我们能够实现一个模型，这个模型能够根据西瓜的外表（颜色、根蒂、敲声、纹理等）来预判一个西瓜是否是好瓜．
+
+    相比于支持向量机、随机森林、决策树和神经网络，朴素贝叶斯分类器的训练非常简单——仅仅是将数据原样保存就可以了，计算工作主要是在推断是进行的．我们下面基于Pandas和Numpy实现一个简单的朴素贝叶斯分类器，它能够接受离散取值的自变量和离散取值的因变量．它的初始化过程是这样的：读入一个 pd.DataFrame 并将其保存，以第1列到倒数第2列作为自变量，最后1列作为因变量．
+
+    \lstinputlisting{demo-1.py}
 \end{document}
